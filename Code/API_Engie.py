@@ -8,7 +8,11 @@ app = Flask(__name__)
 # app.config[r'C:\Users\MICACERE\Documents\Challenge_Engie']
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 # Function 
-# blablabla
+
+@app.route('/')
+def Welcoming_text():
+   return "Welcome to the Engie Challenge API - Please go to this link : http://localhost:8888/productionplan"
+
 @app.route('/productionplan')
 def upload_file():
    return render_template('index.html')

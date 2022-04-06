@@ -6,7 +6,7 @@ import json
 import pandas as pd
 
 # JSON FILE IMPORTATION
-json_file = open('C:/Users/MICACERE/Desktop/payload3.json')
+#json_file = open('C:/Users/MICACERE/Desktop/payload7.json')
 payload = json.load(json_file)
 
 # FUNCTIONS
@@ -15,7 +15,7 @@ def function_cost_1MWh(x):
     if x['type'] == "gasfired":
             return round((gas_euro_MWh * (1 / x["efficiency"])) +  (0.3 * co2_euro_ton),2)
     elif x['type'] == "turbojet":
-        return round(kerosine_euro_MWh * (1 / x["efficiency"]),2)
+        return round(kerosine_euro_MWh * (1 / x["efficiency"]),2) # Do we need to add the C02 ?
     elif x['type'] == 'windturbine':
         return 0
 

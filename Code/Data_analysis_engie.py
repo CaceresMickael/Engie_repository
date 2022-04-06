@@ -10,7 +10,7 @@ import json
 import pandas as pd
 
 # JSON FILE IMPORTATION
-json_file = open('C:/Users/MICACERE/Desktop/payload7.json')
+json_file = open('C:/Users/MICACERE/Desktop/payload4.json')
 payload = json.load(json_file)
 
 # FUNCTIONS

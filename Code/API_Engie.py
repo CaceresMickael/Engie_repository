@@ -8,7 +8,7 @@ app = Flask(__name__)
 # app.config[r'C:\Users\MICACERE\Documents\Challenge_Engie']
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 # Function 
-
+# blablabla
 @app.route('/productionplan')
 def upload_file():
    return render_template('index.html')

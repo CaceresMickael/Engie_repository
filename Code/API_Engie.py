@@ -5,7 +5,7 @@ import pandas as pd
 from Data_analysis_engie import function_cost_1MWh
 
 app = Flask(__name__)
-app.config[r'C:\Users\MICACERE\Documents\Challenge_Engie']
+# app.config[r'C:\Users\MICACERE\Documents\Challenge_Engie']
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 # Function 
 

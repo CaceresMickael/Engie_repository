@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify
 from werkzeug.utils import secure_filename
 import json
 import pandas as pd
-from Data_analysis_engie import function_cost_1MWh
 
 app = Flask(__name__)
 # app.config[r'C:\Users\MICACERE\Documents\Challenge_Engie']
@@ -22,8 +21,15 @@ def uploader_file():
    if request.method == 'POST':
       f = request.files['file']
       payload = json.load(f)
-      #f.save(secure_filename(f.filename))
-      # data_analysis_function(f)
+
+      def function_cost_1MWh(x):
+         if x['type'] == "gasfired":
+            return round((gas_euro_MWh * (1 / x["efficiency"])) +  (0.3 * co2_euro_ton),2)
+         elif x['type'] == "turbojet":
+            return round(kerosine_euro_MWh * (1 / x["efficiency"]),2) # Do we need to add the C02 ?
+         elif x['type'] == 'windturbine':
+            return 0
+      
       df_powerplants = pd.DataFrame.from_dict(payload["powerplants"])
       gas_euro_MWh = payload["fuels"]["gas(euro/MWh)"]
       kerosine_euro_MWh = payload["fuels"]["kerosine(euro/MWh)"]
@@ -76,9 +82,6 @@ def uploader_file():
       #result = df_powerplants[["name", "p", "total_cost"]].to_json(orient="table", index= False)
       result = df_powerplants[["name", "p", "total_cost"]].to_dict('index')
       return jsonify(result)
-
-#data_analysis_funtion():
-   #does stuff
 
 if __name__ == '__main__':
     app.run(debug = False, port=8888)

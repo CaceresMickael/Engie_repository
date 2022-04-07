@@ -91,5 +91,13 @@ def uploader_file():
       result = df_powerplants[["name", "p", "total_cost"]].to_dict('index')
       return jsonify(result)
 
+@app.errorhandler(500)
+def file_error(error):
+    return 'File is missing or Wrong format file or wrong structure (See "exemple.payload.json" on GitHub)', 500
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return 'This page does not exist. Please enter : http://127.0.0.1:8888/productionplan ', 404
+
 if __name__ == '__main__':
     app.run(debug = False, port=8888)

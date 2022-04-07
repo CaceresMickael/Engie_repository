@@ -19,7 +19,7 @@ Open a code editor (*e.g.*, Visual Studio Code) and add:
 * API_Engie.py file
 
 ## Step 3
-To ensure that the code is working well, all the library found in the file "requirements.txt" needs to be installed. (It might require to restart the code editor).
+To ensure that the code is working well, all of the libraries in the file "requirements.txt" need to be installed. (It might require to restart the code editor).
 
 ## Step 4
 The code in the file "API_Engie.py" can be run. A link to the API should appear in the terminal (cf yellow link bellow):

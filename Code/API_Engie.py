@@ -88,7 +88,7 @@ def uploader_file():
       df_powerplants["total_cost"] = df_powerplants.apply(lambda x: round(x["p"] * x["cost_1MWh"],2), axis = 1)
 
       # Create a dictionnary and return it in json
-      result = df_powerplants[["name", "p", "total_cost"]].to_dict('index')
+      result = df_powerplants[["name", "p", "total_cost"]].to_dict('records')
       return jsonify(result)
 
 @app.errorhandler(500)
